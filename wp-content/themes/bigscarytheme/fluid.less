@@ -1,0 +1,142 @@
+@import 'reset.css';
+@import 'grid.less';
+
+
+//////////
+// GRID //
+//////////
+
+// Specify the number of columns and set column and gutter widths
+@columns: 12;
+@column-width: 60;
+@gutter-width: 20;
+
+// Remove the definition below for a pixel-based layout
+@total-width: 100%;
+
+
+////////////
+// LAYOUT //
+////////////
+
+body, input, textarea {
+	color: #373737;
+	font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	line-height: 1.625;
+}
+body {
+	background: #e2e2e2;
+	width: auto;
+	font-size: 14px;
+}
+
+// main column & sidebar
+#primary {
+	.column(10);
+	background: #fff;
+	margin: 2em auto;
+	padding: 10px;
+	float: none;
+	display: block;
+	max-width: 960px;
+}
+	
+header {
+	display: block;
+	
+	h1 {
+		text-align: center;
+		font-size: 2.2em;
+		font-weight: 800;
+	}
+}
+
+#theStory {
+	display: block;
+	float: none;
+	margin: 0px;
+	-moz-column-count: 2;
+	-moz-column-gap: 20px;
+	-webkit-column-count: 2;
+	-webkit-column-gap: 20px;
+	column-count: 2;
+	column-gap: 20px;
+	
+	p:first-child {
+		font-size: 1.2em;
+		margin-bottom: -.5em;
+	}
+}
+
+#theIdeas {
+	.column(10);
+	margin: 0px auto;
+	display: block;
+	float: none;
+}
+
+#loginArea {
+	text-align: center;
+}
+
+#started, #ideas {
+	.column(6);
+	float: left;
+	text-align: center;
+	
+	h2 {
+		font-size: 1.8em;
+		font-weight: 400;
+	}	
+	
+	h3 {
+		font-size: 1.4em;
+		font-weight: 200;
+		margin: 0px;
+	}
+	
+	h4 {
+		font-size: 1.2em;
+		font-weight: 100;
+		margin: 0px;
+		font-style:  italic;
+	}
+	
+	p {
+		margin: 0px;
+	}
+	
+	.entry-content, header {
+		width: auto;
+		margin: 0px;
+	}
+	
+	article, .entry-content {
+		padding: 0px;	
+	}
+	
+	.inProgressPercent {
+		cursor: pointer;
+	}
+	
+	.inProgressPercentInput {
+		width: 15%;
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	#started, #ideas {
+		.column(12);
+	}
+
+	#theStory {
+		-moz-column-count: 1;
+		-moz-column-gap: 0px;
+		-webkit-column-count: 1;
+		-webkit-column-gap: 0px;
+		column-count: 1;
+		column-gap: 0px;
+	}
+}
