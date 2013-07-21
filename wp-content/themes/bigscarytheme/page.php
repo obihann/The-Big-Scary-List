@@ -1,15 +1,25 @@
-<?php get_header(); ?>
+<?php 
+	global $wp_query;
+	get_header();
+	$projects = 0;
+	$potential = 0;
+?>
 
 		<div id="primary">
 
 			<?php while ( have_posts() ) : the_post(); ?>
-
 				<?php get_template_part( 'content', 'page' ); ?>
-
 			<?php endwhile; // end of the loop. ?>
+
+			<div id="score">
+				<h2>Your Score:</h2>
+				<p id="yourScore"></p>
+				<h3>Your Potential:</h3>
+				<p id="potential"></p>
+			</div>
 				
 			<?php				
-				wp_reset_query();	
+				wp_reset_query();
 				$args = array( 'post_type' => 'scaryIdeas', 'meta_key' => 'status', 'meta_value' => 'started', 'orderby' => 'progress', 'post_per_page' => -1 );
 				query_posts( $args );
 			?>
@@ -59,14 +69,17 @@
 					<?php if ( have_posts() ) : ?>
 					<article id="started">
 						<header>
-							<h2>In Progress</h2>
+							<?php 
+								$ips = $wp_query->found_posts;
+								$projects += $ips;
+							?>
+							<h2>In Progress (<?php echo $ips; ?>)</h2>
 						</header>
 						<?php while ( have_posts() ) : the_post(); ?>
 							<?php get_template_part( 'content', 'ip' ); ?>
 						<?php endwhile; ?>
 					</article>
 					<?php endif; ?>
-					
 					
 					<?php
 						wp_reset_query();		
@@ -77,7 +90,11 @@
 					<?php if ( have_posts() ) : ?>
 					<article id="ideas">
 						<header>
-							<h2>Only Ideas</h2>
+							<?php 
+								$ideas = $wp_query->found_posts;
+								$projects += $ideas;
+							?>
+							<h2>Only Ideas (<?php echo $ideas; ?>)</h2>
 						</header>
 						<?php while ( have_posts() ) : the_post(); ?>
 							<?php get_template_part( 'content', get_post_format() ); ?>
@@ -90,5 +107,21 @@
 			
 			<?php endif; //is_user_logged_in()  ?>
 		</div><!-- #primary -->
+		<?php
+			$potential = $projects * 10;
+		?>
+		<script>
+			var score = <?php echo $projects; ?>;
+
+			$(".inProgressPercent").each(function(e) {
+				var points = $(this).html();
+				points = points.replace("%", "");
+				score += points / 10;
+			});
+
+			$("#yourScore").append( score );
+			$("#potential").append( <?php echo $potential; ?> );
+		</script>
+
 
 <?php get_footer(); ?>
