@@ -1,0 +1,106 @@
+@import "compass";
+@import "compass/css3/columns";
+
+body {
+  background: #e2e2e2;
+  width: auto;
+}
+
+#primary {
+  display: inline;
+  float: left;
+  width: 81.25%;
+  margin: 0 1.0416666666666665%;
+  background: #fff;
+  margin: 2em auto;
+  padding: 10px;
+  float: none;
+  display: block;
+  max-width: 960px;
+}
+
+header {
+  display: block;
+  h1 {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 800;
+  }
+}
+
+#theStory {
+  display: block;
+  float: none;
+  margin: 0px;
+  @include columns(20px 2 );
+  column-count: 2;
+  column-gap: 20px;
+  p:first-child {
+    font-size: 1.2em;
+    margin-bottom: -0.5em;
+  }
+}
+
+#theIdeas {
+  display: inline;
+  float: left;
+  width: 81.25%;
+  margin: 0 1.0416666666666665%;
+  margin: 0px auto;
+  display: block;
+  float: none;
+}
+
+#started, #ideas {
+  display: inline;
+  float: left;
+  width: 47.91666666666667%;
+  margin: 0 1.0416666666666665%;
+  float: left;
+  text-align: center;
+}
+
+#started h2, #ideas h2 {
+  font-size: 26px;
+  font-weight: 800;
+}
+
+#started h3, #ideas h3 {
+  font-size: 18px;
+  font-weight: 100;
+  margin: 0px;
+}
+
+#started h4, #ideas h4 {
+  font-size: 16px;
+  font-weight: 100;
+  margin: 0px;
+  font-style: italic;
+}
+
+#started p, #ideas p {
+  margin: 0px;
+}
+
+#started .entry-content, #ideas .entry-content, #started header, #ideas header {
+  width: auto;
+  margin: 0px;
+}
+
+#started article, #ideas article, #started .entry-content, #ideas .entry-content {
+  padding: 0px;
+}
+
+@media screen and (max-width: 640px) {
+  #started, #ideas {
+    display: inline;
+    float: left;
+    width: 97.91666666666666%;
+    margin: 0 1.0416666666666665%;
+  }
+  #theStory {
+    @include columns(0px 1);
+    column-count: 1;
+    column-gap: 0px;
+  }
+}
