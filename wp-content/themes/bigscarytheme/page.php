@@ -1,4 +1,4 @@
-<? get_header(); ?>
+<?php get_header(); ?>
 
 		<div id="primary">
 
@@ -20,10 +20,11 @@
 						$(".inProgressPercent").unbind("click").click(function(event){
 							var target = event.target;
 							var targetID = $(event.target).attr("id");
-							var progress = $(target).html();
-							
+							var progress = $(target).html();							
 							var input = $("<input>");
+
 							$(input).attr("value", progress);
+							$(input).val(progress);
 							$(input).attr("class", "inProgressPercentInput");
 							$(target).before( input );
 							$(target).hide();
@@ -32,35 +33,24 @@
 								if( e.keyCode == 13 )
 								{
 									$(this).hide();
+
 									var article = $(target).parent().parent().parent();
-									var currentID = $(article).attr('id');
-									
-									/*var data = {
-										action: 'wp_ajax_update_postmeta',
-										post: currentID,
-										value: progress
-									};*/
-									
-									$.ajax({
-									    url: "/wp-admin/admin-ajax.php",
-									    type: "POST",
-									    data: {
-									        action: "wp_ajax_my_action"
-									    },
-									    dataType: 'html',
-										success: function(response) {
-											console.log(response);
-										}
-									});
-									
-								    /*$.post(, data, function(response) {
-								    	console.log(response);
-								    	
+									var currentID = $(article).attr('id').replace("post-", "");
+									var value = $(input).val();
+									var data = {
+										action: 'update_project',
+										project: currentID,
+										field: "progress",
+										value: value
+									};
+
+									$.post('<?php echo $site_url;?>/wp-admin/admin-ajax.php', data, function(str)
+									{
+										$(target).html(value);
 										$(target).show();
-										$(target).html( $(this).val() );
-								    });*/
+									});
 								}
-							});	
+							});
 						});
 					});
 				</script>
@@ -98,7 +88,7 @@
 				</section>
 				<div style="clear: both;"></div>
 			
-			<? endif; //is_user_logged_in()  ?>
+			<?php endif; //is_user_logged_in()  ?>
 		</div><!-- #primary -->
 
 <?php get_footer(); ?>

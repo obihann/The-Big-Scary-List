@@ -1,21 +1,16 @@
 <?php
-function ajax_updatPostMeta() 
+function ajax_update_project() 
 {
-	//global $wpdb;
+	global $wpdb;
 		
-	/*$whatever = intval( $_POST['whatever'] );
-	// get number of views if we have any
-	$views = get_post_meta($whatever, views, true); 
-	
-	// update or add post meta
-	if(!update_post_meta($whatever, 'views', ($views+1))) 
-	{
-		add_post_meta($whatever, 'views', 1, true);
-	}*/
-	
-	echo "this reply does not equal a success or failure...";
-	die("9999");
+	$project = $_POST['project'];
+	$field = $_POST['field'];
+	$value = $_POST['value'];
+
+	echo update_post_meta(8, "progress", $value);
+
+	die();
 }
 
-add_action('wp_ajax_nopriv_my_action', 'ajax_updatPostMeta');
-add_action('wp_ajax_my_action', 'ajax_updatPostMeta');
+add_action('wp_ajax_update_project', 'ajax_update_project');
+add_action('wp_ajax_update_project', 'ajax_update_project');
