@@ -63,6 +63,22 @@
 										$(target).html(value);
 										$(target).show();
 										UpdateScore();
+
+										if(value == "100%") {
+											var mover = $("#post-"+currentID);
+											console.log(mover);
+											mover.remove();
+											$("#completed").append(mover);
+
+											var status = {
+												action: 'update_project',
+												project: currentID,
+												field: "status",
+												value: "completed"
+											};
+
+											$.post('<?php echo $site_url;?>/wp-admin/admin-ajax.php', status);
+										}
 									});
 								}
 							});
@@ -87,10 +103,7 @@
 					<?php if ( have_posts() ) : ?>
 					<article id="started">
 						<header>
-							<?php 
-								$ips = $wp_query->found_posts;
-							?>
-							<h2>In Progress (<?php echo $ips; ?>)</h2>
+							<h2>In Progress</h2>
 						</header>
 						<?php while ( have_posts() ) : the_post(); ?>
 							<?php get_template_part( 'content', 'ip' ); ?>
@@ -107,10 +120,7 @@
 					<?php if ( have_posts() ) : ?>
 					<article id="ideas">
 						<header>
-							<?php 
-								$ideas = $wp_query->found_posts;
-							?>
-							<h2>Only Ideas (<?php echo $ideas; ?>)</h2>
+							<h2>Only Ideas</h2>
 						</header>
 						<?php while ( have_posts() ) : the_post(); ?>
 							<?php get_template_part( 'content', 'ideas' ); ?>
@@ -127,10 +137,7 @@
 					<?php if ( have_posts() ) : ?>
 					<article id="completed">
 						<header>
-							<?php 
-								$completed = $wp_query->found_posts;
-							?>
-							<h2>Completed (<?php echo $completed; ?>)</h2>
+							<h2>Completed</h2>
 						</header>
 						<?php while ( have_posts() ) : the_post(); ?>
 							<?php get_template_part( 'content', 'completed' ); ?>

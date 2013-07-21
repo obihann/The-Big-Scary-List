@@ -4,7 +4,7 @@
 				<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 			</h3>
 			<h4>
-				Work Started Jan 1, 2012 <br /> 
+				Work Started <?php echo get_post_meta(get_the_ID(), "start date", true); ?><br /> 
 				The current progress is 
 				<span class="inProgressPercent"><?php echo get_post_meta(get_the_ID(), "progress", true); ?></span>
 			</h4>

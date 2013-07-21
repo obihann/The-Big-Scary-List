@@ -7,7 +7,7 @@ function ajax_update_project()
 	$field = $_POST['field'];
 	$value = $_POST['value'];
 
-	echo update_post_meta($project, "progress", $value);
+	echo update_post_meta($project, $field, $value);
 
 	die();
 }
