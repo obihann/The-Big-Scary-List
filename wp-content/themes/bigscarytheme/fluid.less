@@ -74,7 +74,7 @@ a {
 }
 
 #theIdeas {
-	.column(10);
+	.column(12);
 	margin: 0px auto;
 	display: block;
 	float: none;
@@ -84,7 +84,7 @@ a {
 	text-align: center;
 }
 
-#started, #ideas, #completed {
+#started, #ideas, #completed, #newProject {
 	.column(6);
 	float: left;
 	text-align: center;
@@ -130,11 +130,44 @@ a {
 	}
 }
 
-#completed {
+#completed, #newProject {
 	.column(12);
 
 	.inProgressPercent {
 		display: none;
+	}
+}
+
+#newProject {
+	display: none;
+}
+
+#ideas {
+	.project {
+		cursor: default;
+		position: relative;
+
+		.overlay {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			display: none;
+			background-color: rgba(255, 255, 255, .9);
+
+			a {
+				display: block;
+				position: absolute;
+				margin-top: -22px;
+				top: 50%;
+				width: 100%;
+			}
+		}
+
+		&:hover {
+			.overlay {
+				display: block;
+			}		
+		}
 	}
 }
 

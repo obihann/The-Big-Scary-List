@@ -7,7 +7,15 @@ function ajax_update_project()
 	$field = $_POST['field'];
 	$value = $_POST['value'];
 
-	echo update_post_meta($project, $field, $value);
+	update_post_meta($project, $field, $value);
+
+	if($field == "status" && $value == "started")
+	{
+		date_default_timezone_set("America/Halifax");
+		$date = date("F jS Y");
+		
+		echo update_post_meta($project, "start date", $date);
+	}
 
 	die();
 }

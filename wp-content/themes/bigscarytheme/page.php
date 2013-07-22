@@ -31,10 +31,32 @@
 			<?php if( is_user_logged_in() ) : ?>
 				<script type="text/javascript">
 					$(document).ready(function(){
+
+						$("#ideas .project .overlay a").unbind("click").click(function(event){
+							event.preventDefault();
+							var target = event.target;
+							var parent = $(target).parent().parent();
+							var id = parent.attr("id").replace("post-", "");
+
+							parent.remove();
+							$("#started").append(parent);
+
+							var data = {
+								action: 'update_project',
+								project: id,
+								field: "status",
+								value: "started"
+							};
+
+							$.post('<?php echo $site_url;?>/wp-admin/admin-ajax.php', data);
+
+							return false;
+						});
+
 						$(".inProgressPercent").unbind("click").click(function(event){
 							var target = event.target;
 							var targetID = $(event.target).attr("id");
-							var progress = $(target).html();							
+							var progress = $(target).html();
 							var input = $("<input>");
 
 							$(input).attr("value", progress);
@@ -147,6 +169,15 @@
 					<?php
 						wp_reset_query();	
 					?>
+					<article id="newProject">
+						<header>
+							<h2>Your Next Project</h2>
+						</header>
+						<lnabel>Name:</label><br />
+						<input type="text" /><br />
+						<lnabel>Description:<br />
+						</label><textarea></textarea><br />
+					</article>
 					<div style="clear: both;"></div>
 				</section>
 				<div style="clear: both;"></div>
