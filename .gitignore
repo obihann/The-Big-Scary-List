@@ -6,6 +6,7 @@
 wp-content/*
 !wp-config.php
 !.htaccess
+!reset.css
 !wp-content/plugins/
 !wp-content/themes/
 !wp-content/uploads/

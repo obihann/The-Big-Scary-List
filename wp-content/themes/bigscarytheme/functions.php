@@ -20,5 +20,39 @@ function ajax_update_project()
 	die();
 }
 
+function redirect_on_login() {
+	$referrer = $_SERVER['HTTP_REFERER'];
+	$homepage = get_option('siteurl');
+	if (strstr($referrer, 'incorrect')) {
+		wp_redirect( $homepage );
+		exit;
+	} elseif (strstr($referrer, 'empty')) {
+		wp_redirect( $homepage );
+		exit;
+	} else {  
+		wp_redirect( $referrer );
+		exit;
+	}
+}
+function register_scripts()
+{
+	wp_register_script( 'jquery-new', 'http://code.jquery.com/jquery-1.10.2.min.js');
+	wp_register_script( 'less', get_stylesheet_directory_uri() . '/less-1.2.0.min.js');
+	wp_register_script( 'fancy', get_stylesheet_directory_uri() . '/fancybox/jquery.fancybox.js');
+
+	wp_enqueue_script( 'jquery-new' ); 
+	wp_enqueue_script( 'less' ); 
+	wp_enqueue_script( 'fancy' ); 
+	}
+
+	function register_styles()
+	{
+		wp_register_style( 'fancy', get_stylesheet_directory_uri() . '/fancybox/jquery.fancybox.css');
+
+		wp_enqueue_style( 'fancy' );
+	}
+
 add_action('wp_ajax_update_project', 'ajax_update_project');
 add_action('wp_ajax_update_project', 'ajax_update_project');
+add_action( 'wp_login', 'redirect_on_login' );
+add_action( 'wp_enqueue_scripts', 'register_scripts' ); 
