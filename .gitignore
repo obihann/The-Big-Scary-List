@@ -11,7 +11,5 @@ wp-content/*
 !wp-content/themes/
 !wp-content/uploads/
 
-wp-content/plugins/*
-
 wp-content/themes/*
 !wp-content/themes/Trim/
