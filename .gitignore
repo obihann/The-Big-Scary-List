@@ -4,6 +4,7 @@
 !sql/
 
 wp-content/*
+!wp-config.php
 !wp-content/plugins/
 !wp-content/themes/
 !wp-content/uploads/
