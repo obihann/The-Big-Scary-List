@@ -2,6 +2,8 @@
 	get_header();
 
 	global $wp_query;
+	global $current_user;
+	get_currentuserinfo();
 ?>
 <script>
 	function UpdateScore() {
@@ -117,7 +119,7 @@
 					
 				<?php				
 					wp_reset_query();
-					$args = array( 'post_type' => 'scaryIdeas', 'meta_key' => 'status', 'meta_value' => 'started', 'orderby' => 'progress', 'post_per_page' => -1 );
+					$args = array( 'post_type' => 'scaryIdeas', 'meta_key' => 'status', 'meta_value' => 'started', 'orderby' => 'progress', 'post_per_page' => -1, 'author' => $current_user->ID );
 					query_posts( $args );
 				?>
 
@@ -135,7 +137,7 @@
 					
 					<?php
 						wp_reset_query();		
-						$args = array( 'post_type' => 'scaryIdeas', 'meta_key' => 'status', 'meta_value' => 'idea', 'post_per_page' => -1);
+						$args = array( 'post_type' => 'scaryIdeas', 'meta_key' => 'status', 'meta_value' => 'idea', 'post_per_page' => -1, 'author' => $current_user->ID);
 						query_posts( $args );
 					?>
 	
@@ -152,7 +154,7 @@
 					
 					<?php
 						wp_reset_query();
-						$args = array( 'post_type' => 'scaryIdeas', 'meta_key' => 'status', 'meta_value' => 'completed', 'orderby' => 'progress', 'post_per_page' => -1 );
+						$args = array( 'post_type' => 'scaryIdeas', 'meta_key' => 'status', 'meta_value' => 'completed', 'orderby' => 'progress', 'post_per_page' => -1, 'author' => $current_user->ID );
 						query_posts( $args );
 					?>
 	
