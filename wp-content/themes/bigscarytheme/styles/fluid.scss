@@ -190,20 +190,28 @@ a {
 	}	
 }
 
-#settingsArea {
+#rightFloaty {
 	position: fixed;
-	right: 0px;
+	right: 2em;
 	top: 2em;
-	width: 175px;
+	width: 150px;
 	text-align: left;
+}
+
+#settingsArea {
+	width: 130px;
+	padding: 0px 10px;
 
 	a {
 		text-decoration: none;
 		display: block;
+		font-size: 1.2em;
 	}
 
 	i {
 		margin-right: 5px;
+		width: 18px;
+		display: inline-block;
 	}
 
 	span {
@@ -236,11 +244,13 @@ a {
 	}
 }
 
-#score {
-	text-align: center;
+#score, #welcomeMessage {
+	border-bottom: 2px solid #999999;
+	margin-bottom: 20px;
+	padding: 0px 10px 20px;
 
 	h2 {
-	font-size: 1.8em;
+	font-size: 1.4em;
 	font-weight: 800;
 	}
 
@@ -249,7 +259,7 @@ a {
 	}
 
 	h3 {
-	font-size: 1.4em;
+	font-size: 1.2em;
 	font-weight: 600;
 	font-style: italic;
 	}

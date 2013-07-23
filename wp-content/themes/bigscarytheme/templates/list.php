@@ -110,13 +110,6 @@
 				});
 			});
 		</script>
-
-		<div id="score">
-			<h2>Your Score:</h2>
-			<p id="yourScore"></p>
-			<h3>Your Potential:</h3>
-			<p id="potential"></p>
-		</div>
 			
 		<?php				
 			wp_reset_query();

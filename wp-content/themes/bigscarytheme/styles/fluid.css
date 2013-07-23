@@ -135,17 +135,24 @@ a {
   .author #ideas .project:hover .overlay {
     display: none; }
 
-#settingsArea {
+#rightFloaty {
   position: fixed;
-  right: 0px;
+  right: 2em;
   top: 2em;
-  width: 175px;
+  width: 150px;
   text-align: left; }
+
+#settingsArea {
+  width: 130px;
+  padding: 0px 10px; }
   #settingsArea a {
     text-decoration: none;
-    display: block; }
+    display: block;
+    font-size: 1.2em; }
   #settingsArea i {
-    margin-right: 5px; }
+    margin-right: 5px;
+    width: 18px;
+    display: inline-block; }
   #settingsArea span {
     font-size: 1.2em;
     font-weight: 600; }
@@ -165,18 +172,20 @@ a {
     margin: 0 auto;
     display: block; }
 
-#score {
-  text-align: center; }
-  #score h2 {
-    font-size: 1.8em;
-    font-weight: 800; }
-  #score #yourScore {
-    font-size: 1.2em; }
-  #score h3 {
+#score, #welcomeMessage {
+  border-bottom: 2px solid #999999;
+  margin-bottom: 20px;
+  padding: 0px 10px 20px; }
+  #score h2, #welcomeMessage h2 {
     font-size: 1.4em;
+    font-weight: 800; }
+  #score #yourScore, #welcomeMessage #yourScore {
+    font-size: 1.2em; }
+  #score h3, #welcomeMessage h3 {
+    font-size: 1.2em;
     font-weight: 600;
     font-style: italic; }
-  #score #potential {
+  #score #potential, #welcomeMessage #potential {
     font-size: 1.2em;
     font-style: italic; }
 
