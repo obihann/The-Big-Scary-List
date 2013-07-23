@@ -47,9 +47,11 @@ function register_styles()
 {
 	wp_register_style( 'fancy', get_stylesheet_directory_uri() . '/scripts/fancybox/jquery.fancybox.css');
 	wp_register_style( 'fluid', get_stylesheet_directory_uri() . '/styles/fluid.css');
+	wp_register_style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css');
 
 	wp_enqueue_style( 'fancy' );
 	wp_enqueue_style( 'fluid' );
+	wp_enqueue_style( 'fontawesome' );
 }
 
 add_action('wp_ajax_update_project', 'ajax_update_project');

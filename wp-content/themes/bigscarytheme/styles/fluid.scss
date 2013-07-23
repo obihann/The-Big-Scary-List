@@ -35,11 +35,14 @@ body {
 #primary {
 	@include column(10);
 	background: #fff;
-	margin: 2em auto;
+	margin: 0px auto;
 	padding: 10px;
 	float: none;
 	display: block;
 	max-width: 960px;
+}
+
+.site-header {
 }
 	
 header {
@@ -49,6 +52,7 @@ header {
 		text-align: center;
 		font-size: 2.2em;
 		font-weight: 800;
+		margin: 1em auto .5em auto;
 	}
 }
 
@@ -66,10 +70,16 @@ a {
 	-webkit-column-gap: 20px;
 	column-count: 2;
 	column-gap: 20px;
+	max-height: 400px;
+
+	p {
+		margin: 1em 0px;
+	}
 	
 	p:first-child {
 		font-size: 1.2em;
-		margin-bottom: -.5em;
+		margin-top: 75px;
+		margin-bottom: 75px;
 	}
 }
 
@@ -78,10 +88,6 @@ a {
 	margin: 0px auto;
 	display: block;
 	float: none;
-}
-
-#loginArea {
-	text-align: center;
 }
 
 #started, #ideas, #completed, #newProject {
@@ -184,11 +190,21 @@ a {
 	}	
 }
 
-#loginArea {
-	position: absolute;
+#settingsArea {
+	position: fixed;
 	right: 0px;
 	top: 2em;
-	width: 200px;
+	width: 175px;
+	text-align: left;
+
+	a {
+		text-decoration: none;
+		display: block;
+	}
+
+	i {
+		margin-right: 5px;
+	}
 
 	span {
 		font-size: 1.2em;
@@ -197,6 +213,26 @@ a {
 
 	input {
 		margin: 2px 2px;
+	}
+}
+
+#loginForm {
+	display: none;
+
+	input[type=text],
+	input[type=password] {
+		margin: 4px;
+		float: right;
+	}
+
+	label {
+		margin: 4px;
+		float: left;
+	}
+
+	input[type=submit] {
+		margin: 0 auto;
+		display: block;
 	}
 }
 

@@ -6,6 +6,8 @@
 
 !sql/
 
+*.sass-cache*
+
 wp-content/*
 !wp-content/
 
