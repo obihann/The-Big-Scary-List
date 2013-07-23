@@ -159,16 +159,21 @@ a {
   #settingsArea input {
     margin: 2px 2px; }
 
-#loginForm {
+#loginForm,
+#registerForm {
   display: none; }
   #loginForm input[type=text],
-  #loginForm input[type=password] {
+  #loginForm input[type=password],
+  #registerForm input[type=text],
+  #registerForm input[type=password] {
     margin: 4px;
     float: right; }
-  #loginForm label {
+  #loginForm label,
+  #registerForm label {
     margin: 4px;
     float: left; }
-  #loginForm input[type=submit] {
+  #loginForm input[type=submit],
+  #registerForm input[type=submit] {
     margin: 0 auto;
     display: block; }
 

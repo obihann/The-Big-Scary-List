@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import 'reset.css';
 @import 'grid.scss';
 
@@ -224,7 +225,8 @@ a {
 	}
 }
 
-#loginForm {
+#loginForm,
+#registerForm {
 	display: none;
 
 	input[type=text],
