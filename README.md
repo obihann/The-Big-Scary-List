@@ -1,4 +1,4 @@
-The-Big-Scary-List
+The Big Scary List
 ==================
 
 Well, this is the big scary list. And what exactly is the big scary list? It is list is a personal and semi-professional projects, with the purpose of tracking all my ideas, goals, and half brained schemes. Now, a site like teuxdeux, or a tool like Evernote would be able to do this just as well (or better) than a simple WordPress based site and to be honest I use both frequently, but this site brings something more. 
