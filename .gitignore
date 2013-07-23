@@ -1,15 +1,17 @@
 /*
+!wp-config.php
 !.gitignore
-!wp-content/
+!.htaccess
+!reset.css
+
 !sql/
 
 wp-content/*
-!wp-config.php
-!.htaccess
-!reset.css
-!wp-content/plugins/
+!wp-content/
+
 !wp-content/themes/
+!wp-content/plugins/
 !wp-content/uploads/
 
 wp-content/themes/*
-!wp-content/themes/Trim/
+!wp-content/themes/bigscarytheme/

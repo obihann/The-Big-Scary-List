@@ -1,0 +1,175 @@
+@import url(reset.css);
+body {
+  width: 100%;
+  *zoom: 1; }
+  body:before, body:after {
+    content: "";
+    display: table; }
+  body:after {
+    clear: both; }
+
+body, input, textarea {
+  color: #373737;
+  font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1.625; }
+
+body {
+  background: #e2e2e2;
+  width: auto;
+  font-size: 14px; }
+
+#primary {
+  display: inline;
+  float: left;
+  width: 81.25%;
+  margin: 0 1.04167%;
+  background: #fff;
+  margin: 2em auto;
+  padding: 10px;
+  float: none;
+  display: block;
+  max-width: 960px; }
+
+header {
+  display: block; }
+  header h1 {
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: 800; }
+
+a {
+  color: #000000; }
+
+#theStory {
+  display: block;
+  float: none;
+  margin: 0px;
+  -moz-column-count: 2;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 20px;
+  column-count: 2;
+  column-gap: 20px; }
+  #theStory p:first-child {
+    font-size: 1.2em;
+    margin-bottom: -.5em; }
+
+#theIdeas {
+  display: inline;
+  float: left;
+  width: 97.91667%;
+  margin: 0 1.04167%;
+  margin: 0px auto;
+  display: block;
+  float: none; }
+
+#loginArea {
+  text-align: center; }
+
+#started, #ideas, #completed, #newProject {
+  display: inline;
+  float: left;
+  width: 47.91667%;
+  margin: 0 1.04167%;
+  float: left;
+  text-align: center; }
+  #started h2, #ideas h2, #completed h2, #newProject h2 {
+    font-size: 1.8em;
+    font-weight: 400; }
+  #started h3, #ideas h3, #completed h3, #newProject h3 {
+    font-size: 1.4em;
+    font-weight: 200;
+    margin: 0px; }
+  #started h4, #ideas h4, #completed h4, #newProject h4 {
+    font-size: 1.2em;
+    font-weight: 100;
+    margin: 0px;
+    font-style: italic; }
+  #started p, #ideas p, #completed p, #newProject p {
+    margin: 0px; }
+  #started .entry-content, #started header, #ideas .entry-content, #ideas header, #completed .entry-content, #completed header, #newProject .entry-content, #newProject header {
+    width: auto;
+    margin: 0px; }
+  #started article, #started .entry-content, #ideas article, #ideas .entry-content, #completed article, #completed .entry-content, #newProject article, #newProject .entry-content {
+    padding: 0px; }
+  #started .inProgressPercent, #ideas .inProgressPercent, #completed .inProgressPercent, #newProject .inProgressPercent {
+    cursor: pointer; }
+  #started .inProgressPercentInput, #ideas .inProgressPercentInput, #completed .inProgressPercentInput, #newProject .inProgressPercentInput {
+    width: 15%;
+    text-align: center; }
+
+#completed, #newProject {
+  display: inline;
+  float: left;
+  width: 97.91667%;
+  margin: 0 1.04167%; }
+  #completed .inProgressPercent, #newProject .inProgressPercent {
+    display: none; }
+
+#newProject {
+  display: none; }
+
+#ideas .project {
+  cursor: default;
+  position: relative; }
+  #ideas .project .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgba(255, 255, 255, 0.9); }
+    #ideas .project .overlay a {
+      display: block;
+      position: absolute;
+      margin-top: -22px;
+      top: 50%;
+      width: 100%; }
+  #ideas .project:hover .overlay {
+    display: block; }
+
+.author #ideas .project {
+  cursor: text; }
+  .author #ideas .project:hover .overlay {
+    display: none; }
+
+#loginArea {
+  position: absolute;
+  right: 0px;
+  top: 2em;
+  width: 200px; }
+  #loginArea span {
+    font-size: 1.2em;
+    font-weight: 600; }
+  #loginArea input {
+    margin: 2px 2px; }
+
+#score {
+  text-align: center; }
+  #score h2 {
+    font-size: 1.8em;
+    font-weight: 800; }
+  #score #yourScore {
+    font-size: 1.2em; }
+  #score h3 {
+    font-size: 1.4em;
+    font-weight: 600;
+    font-style: italic; }
+  #score #potential {
+    font-size: 1.2em;
+    font-style: italic; }
+
+@media screen and (max-width: 640px) {
+  #started, #ideas {
+    display: inline;
+    float: left;
+    width: 97.91667%;
+    margin: 0 1.04167%; }
+
+  #theStory {
+    -moz-column-count: 1;
+    -moz-column-gap: 0px;
+    -webkit-column-count: 1;
+    -webkit-column-gap: 0px;
+    column-count: 1;
+    column-gap: 0px; } }
