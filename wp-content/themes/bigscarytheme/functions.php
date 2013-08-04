@@ -15,6 +15,7 @@ function ajax_update_project()
 		$date = date("F jS Y");
 		
 		echo update_post_meta($project, "start date", $date);
+		echo update_post_meta($project, "progress", "0%");
 	}
 
 	die();
@@ -54,6 +55,39 @@ function register_styles()
 	wp_enqueue_style( 'fontawesome' );
 }
 
+function new_idea()
+{
+		$results = '';
+		
+		$idea = $_POST['idea'];
+		$desc =	$_POST['desc'];
+		
+		$project = wp_insert_post( array(
+			'post_title'		=> $idea,
+			'post_content'		=> $desc,
+			'post_status'		=> 'publish',
+			'post_author'       => get_current_user_id(),
+			'post_type'			=> 'scaryideas'
+		) );
+		
+		if($project != 0  )
+		{
+			$results = '*Post Added';
+		
+			$field = "status";
+			$value = "idea";
+
+			update_post_meta($project, $field, $value);
+		}
+		else
+		{
+			$results = '*Error occured while adding the post';
+		}
+		// Return the String
+		die($results);
+}
+
+add_action( 'wp_ajax_new_idea', 'new_idea' );
 add_action('wp_ajax_update_project', 'ajax_update_project');
 add_action( 'wp_login', 'redirect_on_login' );
 add_action( 'wp_enqueue_scripts', 'register_scripts' ); 

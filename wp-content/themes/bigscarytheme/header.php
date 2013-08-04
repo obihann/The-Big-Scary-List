@@ -11,7 +11,8 @@
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$(".loginLink").fancybox();
-				$(".registerLink").fancybox();				
+				$(".registerLink").fancybox();
+				$(".newIdeaLink").fancybox();
 			});
 		</script>
 	</head>
@@ -39,6 +40,7 @@
 				?>
 				<article id="userArea">
 					<a href="<?php echo home_url(); ?>"><i class="icon-home"></i> My list</a>
+					<a href="#apfform" class="newIdeaLink"><i class="icon-plus"></i> New Idea</a>
 					<a href="<?php echo home_url(); ?>/author/<?php echo $current_user->user_login; ?>"><i class="icon-link"></i>Share My List</a>
 					<a href="<?php echo wp_logout_url( $redirect ); ?>"><i class="icon-remove"></i>Log Out</a>
 				</article>

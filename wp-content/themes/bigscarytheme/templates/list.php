@@ -35,6 +35,26 @@
 			$(document).ready(function(){
 				 UpdateScore();
 
+				$(".saveNewIdea").unbind("click").click(function(idea){
+					idea.preventDefault();
+					//var form = event.target;
+
+					//console.log($("#apfform").serialize());
+
+					//parent.remove();
+					//$("#started").append(parent);
+
+					var data = {
+						action: 'new_idea',
+						idea: $("#apftitle").val(),
+						desc: $("#apfcontents").val()
+					};
+
+					$.post('<?php echo $site_url;?>/wp-admin/admin-ajax.php', data);
+
+					return false;
+				});
+
 				$("#ideas .project .overlay a").unbind("click").click(function(event){
 					event.preventDefault();
 					var target = event.target;

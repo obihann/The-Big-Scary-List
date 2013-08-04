@@ -160,22 +160,32 @@ a {
     margin: 2px 2px; }
 
 #loginForm,
-#registerForm {
+#registerForm,
+#apfform {
   display: none; }
   #loginForm input[type=text],
   #loginForm input[type=password],
   #registerForm input[type=text],
-  #registerForm input[type=password] {
+  #registerForm input[type=password],
+  #apfform input[type=text],
+  #apfform input[type=password] {
     margin: 4px;
     float: right; }
   #loginForm label,
-  #registerForm label {
+  #registerForm label,
+  #apfform label {
     margin: 4px;
     float: left; }
   #loginForm input[type=submit],
-  #registerForm input[type=submit] {
+  #registerForm input[type=submit],
+  #apfform input[type=submit] {
     margin: 0 auto;
     display: block; }
+
+#apfform input,
+#apfform textarea {
+  width: 600px;
+  float: left; }
 
 #score, #welcomeMessage {
   border-bottom: 2px solid #999999;

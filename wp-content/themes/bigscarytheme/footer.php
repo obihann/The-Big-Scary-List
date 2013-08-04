@@ -1,3 +1,17 @@
+	<form id="apfform" action="" method="post"enctype="multipart/form-data">
+		<div id="apf-text">
+			<div id="apf-response" style="background-color:#E6E6FA ;color:blue;"></div>
+			<strong>Your Great Idea </strong> <br/>
+			<input type="text" id="apftitle" name="apftitle"/><br /> 
+			<br/>
+			
+			<strong>Tell us about it </strong> <br/>
+			<textarea id="apfcontents" name="apfcontents" rows="10" cols="20"></textarea>
+		 	<br/>
+			
+			<a class="saveNewIdea" style="cursor: pointer"><i class="icon-ok"></i> <b>Save Idea</b></a>
+		</div>
+	</form>
 
 	<form method="post" action="<?php echo get_option('home'); ?>/wp-login.php" id="loginForm">
 		<label>Username:</label><input name="log" type="text"><br /><br />
