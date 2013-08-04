@@ -56,35 +56,29 @@ function register_styles()
 }
 
 function new_idea()
-{
-		$results = '';
-		
-		$idea = $_POST['idea'];
-		$desc =	$_POST['desc'];
-		
-		$project = wp_insert_post( array(
-			'post_title'		=> $idea,
-			'post_content'		=> $desc,
-			'post_status'		=> 'publish',
-			'post_author'       => get_current_user_id(),
-			'post_type'			=> 'scaryideas'
-		) );
-		
-		if($project != 0  )
-		{
-			$results = '*Post Added';
-		
-			$field = "status";
-			$value = "idea";
+{		
+	$idea = $_POST['idea'];
+	$desc =	$_POST['desc'];
+	
+	$project = wp_insert_post( array(
+		'post_title'		=> $idea,
+		'post_content'		=> $desc,
+		'post_status'		=> 'publish',
+		'post_author'       => get_current_user_id(),
+		'post_type'			=> 'scaryideas'
+	) );
 
-			update_post_meta($project, $field, $value);
-		}
-		else
-		{
-			$results = '*Error occured while adding the post';
-		}
-		// Return the String
-		die($results);
+	
+	if($project != 0  )
+	{	
+		echo $project;
+		$field = "status";
+		$value = "idea";
+
+		update_post_meta($project, $field, $value);
+	}
+
+	die();
 }
 
 add_action( 'wp_ajax_new_idea', 'new_idea' );

@@ -32,6 +32,27 @@
 				$("#potential").html( potential );
 			}
 
+			function startIdea(event) {
+				event.preventDefault();
+				var target = event.target;
+				var parent = $(target).parent().parent();
+				var id = parent.attr("id").replace("post-", "");
+
+				parent.remove();
+				$("#started h2").after(parent);
+
+				var data = {
+					action: 'update_project',
+					project: id,
+					field: "status",
+					value: "started"
+				};
+
+				$.post('<?php echo $site_url;?>/wp-admin/admin-ajax.php', data);
+
+				return false;				
+			}
+
 			$(document).ready(function(){
 				 UpdateScore();
 
@@ -44,35 +65,32 @@
 						desc: $("#apfcontents").val()
 					};
 
-					$.post('<?php echo $site_url;?>/wp-admin/admin-ajax.php', data);
+					$.post('<?php echo $site_url;?>/wp-admin/admin-ajax.php', data, function(id) {
+						$(".fancybox-overlay").hide();
+						$("#apftitle").val("");
+						$("#apfcontents").val("");
 
-					$(".fancybox-overlay").hide();
-					$("#apftitle").val("");
-					$("#apfcontents").val("");
+						var overlay = $("<div></div>").addClass("overlay");
+						overlay.append( $("<a>").text("Start the project").attr("href", "#") );
 
-					return false;
-				});
+						var title = $("<h3></h3>").append( $("<a>").text(data.idea).attr("href", "#").addClass("startProject") );
+						var header = $("<header></header>").addClass("entry-header");
+						header.append(title);
 
-				$("#ideas .project .overlay a").unbind("click").click(function(event){
-					event.preventDefault();
-					var target = event.target;
-					var parent = $(target).parent().parent();
-					var id = parent.attr("id").replace("post-", "");
+						var article = $("<article></article>").attr("id", "post-"+id).addClass("project");
+						article.append(overlay);
+						article.append(header);
+						article.append( $("<p></p>").text(data.desc) );
 
-					parent.remove();
-					$("#started").append(parent);
+						$("#ideas h2").after(article);
 
-					var data = {
-						action: 'update_project',
-						project: id,
-						field: "status",
-						value: "started"
-					};
-
-					$.post('<?php echo $site_url;?>/wp-admin/admin-ajax.php', data);
+						article.click(startIdea);
+					});
 
 					return false;
 				});
+
+				$("#ideas .project .overlay a").click(startIdea);
 
 				$(".inProgressPercent").unbind("click").click(function(event){
 					var target = event.target;
