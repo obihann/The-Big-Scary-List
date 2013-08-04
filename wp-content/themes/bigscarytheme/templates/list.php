@@ -37,12 +37,6 @@
 
 				$(".saveNewIdea").unbind("click").click(function(idea){
 					idea.preventDefault();
-					//var form = event.target;
-
-					//console.log($("#apfform").serialize());
-
-					//parent.remove();
-					//$("#started").append(parent);
 
 					var data = {
 						action: 'new_idea',
@@ -51,6 +45,10 @@
 					};
 
 					$.post('<?php echo $site_url;?>/wp-admin/admin-ajax.php', data);
+
+					$(".fancybox-overlay").hide();
+					$("#apftitle").val("");
+					$("#apfcontents").val("");
 
 					return false;
 				});
