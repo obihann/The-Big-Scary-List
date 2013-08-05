@@ -18,6 +18,59 @@
 		<?php endwhile; // end of the loop. ?>
 	<?php else: ?>
 		<script type="text/javascript">
+			function updatePercent(event) {
+				var target = event.target;
+				var targetID = $(event.target).attr("id");
+				var progress = $(target).html();
+				var input = $("<input>");
+
+				$(input).attr("value", progress);
+				$(input).val(progress);
+				$(input).attr("class", "inProgressPercentInput");
+				$(target).before( input );
+				$(target).hide();
+			
+				$(".inProgressPercentInput").bind("keypress", function(e){
+					if( e.keyCode == 13 )
+					{
+						$(this).hide();
+
+						var article = $(target).parent().parent().parent();
+						var currentID = $(article).attr('id').replace("post-", "");
+						var value = $(input).val();
+						var data = {
+							action: 'update_project',
+							project: currentID,
+							field: "progress",
+							value: value
+						};
+
+						$.post('<?php echo $site_url;?>/wp-admin/admin-ajax.php', data, function(str)
+						{
+							$(target).html(value);
+							$(target).show();
+							UpdateScore();
+
+							if(value == "100%") {
+								var mover = $("#post-"+currentID);
+								console.log(mover);
+								mover.remove();
+								$("#completed").append(mover);
+
+								var status = {
+									action: 'update_project',
+									project: currentID,
+									field: "status",
+									value: "completed"
+								};
+
+								$.post('<?php echo $site_url;?>/wp-admin/admin-ajax.php', status);
+							}
+						});
+					}
+				});
+			}
+
 			function UpdateScore() {
 				var score = $(".project").size();
 				var potential = score * 10;
@@ -37,9 +90,18 @@
 				var target = event.target;
 				var parent = $(target).parent().parent();
 				var id = parent.attr("id").replace("post-", "");
-
 				parent.remove();
-				$("#started h2").after(parent);
+				parent.find(".overlay").remove();
+
+				var d = new Date();
+				var dateStr = "Work Started " + d.getMonth() + " " + d.getDate() + " " + d.getFullYear();
+				var prog = $("<span></span>").addClass("inProgressPercent").text("0%");
+				var status = $("<h4></h4>").html(dateStr + "<br />The current progress is ").append(prog);
+				parent.find("header").append(status);
+
+				$("#started .sectionHeader").after(parent);
+
+				$(".inProgressPercent").unbind("click").click(updatePercent);
 
 				var data = {
 					action: 'update_project',
@@ -82,7 +144,7 @@
 						article.append(header);
 						article.append( $("<p></p>").text(data.desc) );
 
-						$("#ideas h2").after(article);
+						$("#ideas .sectionHeader").after(article);
 
 						article.click(startIdea);
 					});
@@ -92,58 +154,7 @@
 
 				$("#ideas .project .overlay a").click(startIdea);
 
-				$(".inProgressPercent").unbind("click").click(function(event){
-					var target = event.target;
-					var targetID = $(event.target).attr("id");
-					var progress = $(target).html();
-					var input = $("<input>");
-
-					$(input).attr("value", progress);
-					$(input).val(progress);
-					$(input).attr("class", "inProgressPercentInput");
-					$(target).before( input );
-					$(target).hide();
-				
-					$(".inProgressPercentInput").bind("keypress", function(e){
-						if( e.keyCode == 13 )
-						{
-							$(this).hide();
-
-							var article = $(target).parent().parent().parent();
-							var currentID = $(article).attr('id').replace("post-", "");
-							var value = $(input).val();
-							var data = {
-								action: 'update_project',
-								project: currentID,
-								field: "progress",
-								value: value
-							};
-
-							$.post('<?php echo $site_url;?>/wp-admin/admin-ajax.php', data, function(str)
-							{
-								$(target).html(value);
-								$(target).show();
-								UpdateScore();
-
-								if(value == "100%") {
-									var mover = $("#post-"+currentID);
-									console.log(mover);
-									mover.remove();
-									$("#completed").append(mover);
-
-									var status = {
-										action: 'update_project',
-										project: currentID,
-										field: "status",
-										value: "completed"
-									};
-
-									$.post('<?php echo $site_url;?>/wp-admin/admin-ajax.php', status);
-								}
-							});
-						}
-					});
-				});
+				$(".inProgressPercent").unbind("click").click(updatePercent);
 			});
 		</script>
 			
@@ -156,7 +167,7 @@
 		<section id="theIdeas">
 			<?php if ( have_posts() ) : ?>
 				<article id="started">
-					<header>
+					<header class="sectionHeader">
 						<h2>In Progress</h2>
 					</header>
 					<?php while ( have_posts() ) : the_post(); ?>
@@ -173,7 +184,7 @@
 
 			<?php if ( have_posts() ) : ?>
 				<article id="ideas">
-					<header>
+					<header class="sectionHeader">
 						<h2>Only Ideas</h2>
 					</header>
 					<?php while ( have_posts() ) : the_post(); ?>
