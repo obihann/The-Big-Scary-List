@@ -53,9 +53,9 @@
 
 							if(value == "100%") {
 								var mover = $("#post-"+currentID);
-								console.log(mover);
 								mover.remove();
-								$("#completed").append(mover);
+								$("#completed article header h4").remove();
+								$("#completed .sectionHeader").after(mover);
 
 								var status = {
 									action: 'update_project',
@@ -201,7 +201,7 @@
 
 			<?php if ( have_posts() ) : ?>
 				<article id="completed">
-					<header>
+					<header class="sectionHeader">
 						<h2>Completed</h2>
 					</header>
 					<?php while ( have_posts() ) : the_post(); ?>

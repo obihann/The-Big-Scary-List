@@ -109,6 +109,9 @@ a {
   #completed .inProgressPercent, #newProject .inProgressPercent {
     display: none; }
 
+#completed article header h4 {
+  display: none; }
+
 #newProject {
   display: none; }
 
