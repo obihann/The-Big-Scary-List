@@ -94,7 +94,21 @@
 				parent.find(".overlay").remove();
 
 				var d = new Date();
-				var dateStr = "Work Started " + d.getMonth() + " " + d.getDate() + " " + d.getFullYear();
+				var monthNames = [ "January", "February", "March", "April", "May", "June",
+    				"July", "August", "September", "October", "November", "December" ];
+
+				// Suffix is based on the last digit of the number
+				lastDigit = d.getDate()[d.getDate().length-1];
+
+				// Default to "th"
+				suffix = "th";
+				switch(lastDigit) {
+				    case "1": suffix = "st";
+				    case "2": suffix = "nd";
+				    case "3": suffix = "rd";
+				}
+
+				var dateStr = "Work Started " + monthNames[d.getMonth()] + " " + d.getDate() + suffix + " " + d.getFullYear();
 				var prog = $("<span></span>").addClass("inProgressPercent").text("0%");
 				var status = $("<h4></h4>").html(dateStr + "<br />The current progress is ").append(prog);
 				parent.find("header").append(status);
