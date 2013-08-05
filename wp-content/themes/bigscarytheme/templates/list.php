@@ -142,7 +142,8 @@
 					};
 
 					$.post('<?php echo $site_url;?>/wp-admin/admin-ajax.php', data, function(id) {
-						$(".fancybox-overlay").hide();
+						//$(".fancybox-overlay").hide();
+						$.fancybox.close();
 						$("#apftitle").val("");
 						$("#apfcontents").val("");
 
