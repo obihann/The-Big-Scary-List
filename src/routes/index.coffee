@@ -1,9 +1,7 @@
 http = require 'http'
 
 router = (app) ->
-    idea = require('../controllers/idea') app
-
-    console.log idea
-    app.get '/', idea.ideas
+    controller = require('../controllers/index') app
+    idea: require('./idea') app, http, controller
 
 module.exports = router

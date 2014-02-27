@@ -7,4 +7,12 @@ ideaController = (app) ->
         res.render 'ideas',
             layout: 'layout'
 
+    idea: (req, res) ->
+
+    new: (req, res) ->
+
+    delete: (req, res) ->
+
+    update: (req, res) ->
+
 module.exports = ideaController

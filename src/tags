@@ -1,0 +1,21 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	Development	//
+Idea	controllers/idea.coffee	/^Idea = require '..\/models\/idea'$/;"	v
+ObjectId	models/idea.coffee	/^ObjectId = Schema.ObjectId$/;"	v
+ObjectId	models/user.coffee	/^ObjectId = Schema.ObjectId$/;"	v
+User	controllers/idea.coffee	/^User = require '..\/models\/user'$/;"	v
+app	server.coffee	/^app            = module.exports = express()$/;"	v
+config	config.coffee	/^config = $/;"	v
+controllers	controllers/index.coffee	/^controllers = (app) ->$/;"	f
+express	server.coffee	/^express        = require 'express'$/;"	v
+http	routes/index.coffee	/^http = require 'http'$/;"	v
+ideaController	controllers/idea.coffee	/^ideaController = (app) ->$/;"	f
+module.exports	routes/idea.coffee	/^module.exports = router$/;"	v
+module.exports	routes/index.coffee	/^module.exports = router$/;"	v
+port	server.coffee	/^port = 8080$/;"	v
+router	routes/idea.coffee	/^router = (app, http, controller) ->$/;"	f
+router	routes/index.coffee	/^router = (app) ->$/;"	f
