@@ -9,7 +9,7 @@ ObjectId = Schema.ObjectId;
 schema = new Schema({
   user: {
     type: ObjectId,
-    ref: 'User'
+    ref: 'users'
   },
   name: String,
   description: String,
@@ -18,4 +18,4 @@ schema = new Schema({
   finished: Boolean
 });
 
-module.exports = Mongoose.model('Idea', schema);
+module.exports = Mongoose.model('ideas', schema);

@@ -1,13 +1,35 @@
 .header
-    h1 The Big Scary List
+    h1.text-center The Big Scary List
 
 .container.ideas
     .row
         .col-xs-6
-            h2 In Progress
+            h3.text-center In Progress
+            ul.text-center.list-unstyled
+                each idea in ideas
+                    if idea.started
+                        li
+                            span.lead=idea.name
+                            small
+                                em The current progress is 
+                                    = idea.progress
+                                    %
+                            p= idea.description
         .col-xs-6
-            h2 Ideas
+            h3.text-center Ideas
+            ul.text-center.list-unstyled
+                each idea in ideas
+                    if !idea.started && !idea.finished
+                        li
+                            span.lead=idea.name
+                            p= idea.description
     .rows
         .col-xs-12
-            h2 Completed
+            h3.text-center Completed
+            ul.text-center.list-unstyled
+                each idea in ideas
+                    if !idea.started && !idea.finished
+                        li
+                            span.lead=idea.name
+                            p= idea.description
 

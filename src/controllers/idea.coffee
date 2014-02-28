@@ -1,11 +1,17 @@
 config = require '../config'
-Idea = require '../models/idea'
-User = require '../models/user'
+_ = require 'underscore'
+Ideas = require '../models/idea'
+Users = require '../models/user'
 
 ideaController = (app) ->
     ideas: (req, res) ->
-        res.render 'ideas',
-            layout: 'layout'
+        Ideas.find({}).exec (err, ideas) ->
+            completed = []
+            stated = []
+
+            res.render 'ideas',
+                layout: 'layout'
+                ideas: ideas
 
     idea: (req, res) ->
 

@@ -1,16 +1,24 @@
-var Idea, User, config, ideaController;
+var Ideas, Users, config, ideaController, _;
 
 config = require('../config');
 
-Idea = require('../models/idea');
+_ = require('underscore');
 
-User = require('../models/user');
+Ideas = require('../models/idea');
+
+Users = require('../models/user');
 
 ideaController = function(app) {
   return {
     ideas: function(req, res) {
-      return res.render('ideas', {
-        layout: 'layout'
+      return Ideas.find({}).exec(function(err, ideas) {
+        var completed, stated;
+        completed = [];
+        stated = [];
+        return res.render('ideas', {
+          layout: 'layout',
+          ideas: ideas
+        });
       });
     },
     idea: function(req, res) {},

@@ -16,14 +16,10 @@ schema = new Schema({
     type: String,
     required: true
   },
-  salt: {
-    type: String,
-    required: true
-  },
   ideas: {
     type: ObjectId,
-    ref: 'Idea'
+    ref: 'ideas'
   }
 });
 
-module.exports = Mongoose.model('User', schema);
+module.exports = Mongoose.model('users', schema);

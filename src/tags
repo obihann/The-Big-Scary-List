@@ -4,11 +4,12 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	Development	//
-Idea	controllers/idea.coffee	/^Idea = require '..\/models\/idea'$/;"	v
+Ideas	controllers/idea.coffee	/^Ideas = require '..\/models\/idea'$/;"	v
 ObjectId	models/idea.coffee	/^ObjectId = Schema.ObjectId$/;"	v
 ObjectId	models/user.coffee	/^ObjectId = Schema.ObjectId$/;"	v
-User	controllers/idea.coffee	/^User = require '..\/models\/user'$/;"	v
+Users	controllers/idea.coffee	/^Users = require '..\/models\/user'$/;"	v
 app	server.coffee	/^app            = module.exports = express()$/;"	v
+completed	controllers/idea.coffee	/^            completed = []$/;"	v
 config	config.coffee	/^config = $/;"	v
 controllers	controllers/index.coffee	/^controllers = (app) ->$/;"	f
 express	server.coffee	/^express        = require 'express'$/;"	v
@@ -19,3 +20,4 @@ module.exports	routes/index.coffee	/^module.exports = router$/;"	v
 port	server.coffee	/^port = 8080$/;"	v
 router	routes/idea.coffee	/^router = (app, http, controller) ->$/;"	f
 router	routes/index.coffee	/^router = (app) ->$/;"	f
+stated	controllers/idea.coffee	/^            stated = []$/;"	v

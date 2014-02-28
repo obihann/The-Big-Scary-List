@@ -5,11 +5,11 @@ ObjectId = Schema.ObjectId
 schema = new Schema
     user: 
         type: ObjectId
-        ref: 'User'
+        ref: 'users'
     name: String
     description: String
     progress: Number
     started: Boolean
     finished: Boolean
 
-module.exports = Mongoose.model 'Idea', schema
+module.exports = Mongoose.model 'ideas', schema
