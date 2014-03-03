@@ -16,10 +16,19 @@ schema = new Schema({
     type: String,
     required: true
   },
-  ideas: {
-    type: ObjectId,
-    ref: 'ideas'
-  }
+  ideas: [
+    {
+      id: ObjectId,
+      name: {
+        type: String,
+        unique: true
+      },
+      description: String,
+      progress: Number,
+      started: Boolean,
+      finished: Boolean
+    }
+  ]
 });
 
 module.exports = Mongoose.model('users', schema);
