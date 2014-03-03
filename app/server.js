@@ -14,6 +14,8 @@ app.configure(function() {
   mongoose.connect(config.mongo.local);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
+  app.use(express.json());
+  app.use(express.urlencoded());
   app.use(partials());
   app.use(express["static"](__dirname + '/public'));
   return app.use(app.router);

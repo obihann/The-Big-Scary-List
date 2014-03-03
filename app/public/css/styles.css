@@ -2,6 +2,24 @@ body {
   background-color: #e2e2e2;
 }
 
+a {
+  color: #000;
+}
+a:hover {
+  color: #000;
+}
+
+i {
+  margin: 0px 5px;
+}
+i a {
+  margin: 0px 0px 0px 2px;
+}
+
+.container {
+  padding: 20px;
+}
+
 .ideas {
   background-color: #FFF;
 }

@@ -9,7 +9,7 @@ module.exports = function (grunt) {
                 tasks: ['coffee', 'sync']
             },
             assets: {
-                files: ['src/assets/*'],
+                files: ['src/assets/*', 'src/views/*'],
                 tasks: ['sync'],
                 options: {
                     livereload: true

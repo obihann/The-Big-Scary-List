@@ -12,6 +12,7 @@ app	server.coffee	/^app            = module.exports = express()$/;"	v
 completed	controllers/idea.coffee	/^            completed = []$/;"	v
 config	config.coffee	/^config = $/;"	v
 controllers	controllers/index.coffee	/^controllers = (app) ->$/;"	f
+data	controllers/idea.coffee	/^        data = req.body$/;"	v
 express	server.coffee	/^express        = require 'express'$/;"	v
 http	routes/index.coffee	/^http = require 'http'$/;"	v
 ideaController	controllers/idea.coffee	/^ideaController = (app) ->$/;"	f
