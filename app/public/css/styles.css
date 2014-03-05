@@ -16,6 +16,10 @@ i a {
   margin: 0px 0px 0px 2px;
 }
 
+.form-inline input {
+  margin: 0px 4px;
+}
+
 .container {
   padding: 20px;
 }

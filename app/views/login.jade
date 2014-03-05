@@ -1,0 +1,29 @@
+.header
+    h1.text-center The Big Scary List
+        small Login / Register
+
+.container.ideas
+    .row
+        div(class="col-xs-4 col-xs-offset-1")
+            h2 Login
+            form(role="form", action="/login", method="post")
+                div.form-group
+                    label(for="username") Username
+                    input(name="username", type="text", class="form-control", placeholder="Username") 
+                div.form-group
+                    label(for="password") Password
+                    input(name="password", type="password", class="form-control", placeholder="Password") 
+                button(type="submit", class="btn btn-default") Login
+        div(class="col-xs-6")
+            h2 Register
+            form(role="form", action="/register", method="post")
+                div.form-group
+                    label(for="username") Username
+                    input(name="username", type="text", class="form-control", placeholder="Username") 
+                div.form-group
+                    label(for="password") Password
+                    input(name="password", type="password", class="form-control", placeholder="Password") 
+                div.form-group
+                    label(for="confirm-password") Confirm Password
+                    input(name="confirm-password", type="password", class="form-control", placeholder="Password") 
+                button(type="submit", class="btn btn-default") Login

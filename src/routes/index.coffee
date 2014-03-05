@@ -3,7 +3,7 @@ http = require 'http'
 router = (app) ->
     user = require('../controllers/user') app
 
-    app.get '/', user.ideas
+    app.get '/', user.index
     app.get '/idea', user.idea
     app.get '/new-idea', user.newIdeaPage
     app.get '/idea/start/:id', user.start
@@ -12,5 +12,9 @@ router = (app) ->
     app.post '/idea/delete/:id', user.delete
     app.post '/idea/update/:id', user.update
     app.post '/idea/finish/:id', user.finish
+
+    app.get '/login', user.loginPage
+    app.post '/register', user.register
+    #app.post '/login', user.login
 
 module.exports = router
