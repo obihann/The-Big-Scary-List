@@ -15,6 +15,23 @@ userController = function(app) {
         layout: 'layout'
       });
     },
+    login: function(req, res) {
+      var data;
+      data = req.body;
+      return Users.findOne({
+        name: data.username
+      }).exec(function(err, user) {
+        var hash;
+        hash = bcrypt.hash(user.password, user.salt);
+        return bcrypt.compare(data.password, hash, function(response) {
+          if (response) {
+            return res.redirect('/ideas/' + user._id);
+          } else {
+            return res.redirect('/register');
+          }
+        });
+      });
+    },
     register: function(req, res) {
       var data, hash, salt, user;
       data = req.body;
@@ -39,7 +56,7 @@ userController = function(app) {
     },
     ideas: function(req, res) {
       var user_id;
-      user_id = '5310aa29df63c208a6000001';
+      user_id = req.params.id;
       return Users.findOne({
         _id: user_id
       }).exec(function(err, user) {

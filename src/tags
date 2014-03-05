@@ -15,6 +15,7 @@ controllers	controllers/index.coffee	/^controllers = (app) ->$/;"	f
 data	controllers/idea.coffee	/^        data = req.body$/;"	v
 data	controllers/user.coffee	/^        data = req.body$/;"	v
 express	server.coffee	/^express        = require 'express'$/;"	v
+hash	controllers/user.coffee	/^            hash = bcrypt.hash user.password, user.salt$/;"	v
 http	routes/index.coffee	/^http = require 'http'$/;"	v
 idea	controllers/idea.coffee	/^            idea =$/;"	v
 idea	controllers/user.coffee	/^            idea = _.find user.ideas, (idea) ->$/;"	f

@@ -8,6 +8,18 @@ userController = (app) ->
         res.render 'index',
             layout: 'layout'
 
+    login: (req, res) ->
+        data = req.body
+
+        Users.findOne({name:data.username}).exec (err, user) ->
+            hash = bcrypt.hash user.password, user.salt
+
+            bcrypt.compare data.password, hash, (response) ->
+                if response
+                    res.redirect '/ideas/' + user._id
+                else
+                    res.redirect '/register'
+
     register: (req, res) ->
         data = req.body
         salt = bcrypt.genSaltSync 10
@@ -28,7 +40,7 @@ userController = (app) ->
             layout: 'layout'
 
     ideas: (req, res) ->
-        user_id = '5310aa29df63c208a6000001'
+        user_id = req.params.id
         Users.findOne({_id: user_id}).exec (err, user) ->
             res.render 'ideas',
                 layout: 'layout'

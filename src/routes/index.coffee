@@ -4,7 +4,7 @@ router = (app) ->
     user = require('../controllers/user') app
 
     app.get '/', user.index
-    app.get '/idea', user.idea
+    app.get '/ideas/:id', user.ideas
     app.get '/new-idea', user.newIdeaPage
     app.get '/idea/start/:id', user.start
 
@@ -15,6 +15,6 @@ router = (app) ->
 
     app.get '/login', user.loginPage
     app.post '/register', user.register
-    #app.post '/login', user.login
+    app.post '/login', user.login
 
 module.exports = router
