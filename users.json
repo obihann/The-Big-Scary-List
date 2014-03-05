@@ -1,0 +1,42 @@
+{
+    name: "obihann",
+    salt: "$2a$10$F8f7R.ieAaRkTeSZsx/bLO",
+    password: "$2a$10$F8f7R.ieAaRkTeSZsx/bLOfxur351L6fX0ttSd1D9N8T4z1f0k9.e",
+    _id: ObjectId("53175a4f382b556c656d0e04"),
+    ideas: [
+        {
+            name: "IRSSI Web Interface",
+            description: "Python plugin for IRSSI that lets you access it via  web interface",
+            _id: ObjectId("5314d7c9ef42e187ac3bbc40")
+        },
+        {
+            name: "Archey for OSX",
+            description: "Find a good OSX rewrite of Archey and submit it to Homebrew",
+            _id: ObjectId("5314d9dcd44e4f62b1dbd87c"),
+            started: true,
+            finished: true,
+            progress: 100
+        },
+        {
+            name: "Android App",
+            description: "Native Android weather app.",
+            _id: ObjectId("5314d9e9d44e4f62b1dbd87d"),
+            started: true,
+            finished: true,
+            progress: 100
+        },
+        {
+            name: "Rasberry Pi Poker Game",
+            description: "Build a multiplayer poker game for rasberry pi with node.js and socket.io. The server will run on the pi and players will connect via a wifi access point the pi is broadcasting.",
+            _id: ObjectId("5314d9f7d44e4f62b1dbd87e"),
+            started: true,
+            progress: 30
+        },
+        {
+            name: "Nagios Pebble App",
+            description: "Pebble app to monitor Nagios servers and activities. ",
+            _id: ObjectId("5314da19d44e4f62b1dbd87f")
+        }
+    ],
+    __v: 0
+}
