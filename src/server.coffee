@@ -4,9 +4,13 @@ partials       = require 'express-partials'
 mongoose       = require 'mongoose'
 app            = module.exports = express()
 
-app.configure () ->
+app.configure 'local', () ->
     mongoose.connect config.mongo.local
 
+app.configure 'dev', () ->
+    mongoose.connect config.mongo.dev
+
+app.configure () ->
     app.set 'views', __dirname + '/views'
     app.set 'view engine', 'jade'
 
@@ -20,7 +24,7 @@ app.configure () ->
 require("./routes/index") app
 
 # load site
-port = 8080
+port = process.env.PORT || 8000
 
 app.listen port, () ->
     console.log 'Weere Up!' + port
