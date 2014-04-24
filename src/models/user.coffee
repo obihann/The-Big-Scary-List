@@ -1,6 +1,7 @@
 Mongoose = require 'mongoose'
 Schema = Mongoose.Schema
 ObjectId = Schema.ObjectId
+bcrypt = require 'bcrypt'
 
 schema = new Schema
     name: 
@@ -23,5 +24,14 @@ schema = new Schema
         started: Boolean
         finished: Boolean
     ]
+
+schema.methods.authenticate = (password, cb) ->
+    passHash = @password
+    bcrypt.hash password, @salt, (err, hash) ->
+        cb(err) if err
+
+        bcrypt.compare password, passHash, (err, match) ->
+            cb(err) if err
+            cb null, match
 
 module.exports = Mongoose.model 'users', schema

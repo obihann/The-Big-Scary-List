@@ -1,6 +1,5 @@
 config = require '../config'
 _ = require 'underscore'
-bcrypt = require 'bcrypt'
 Users = require '../models/user'
 
 userController = (app) ->
@@ -9,16 +8,11 @@ userController = (app) ->
             layout: 'layout'
 
     login: (req, res) ->
-        data = req.body
+        if req.user
+            res.redirect '/ideas/' + req.user._id
+        else
+            res.redirect '/login'
 
-        Users.findOne({name:data.username}).exec (err, user) ->
-            hash = bcrypt.hash user.password, user.salt
-
-            bcrypt.compare data.password, hash, (response) ->
-                if response
-                    res.redirect '/ideas/' + user._id
-                else
-                    res.redirect '/register'
 
     register: (req, res) ->
         data = req.body
@@ -32,7 +26,6 @@ userController = (app) ->
 
         user.save (err) ->
             console.log err if err
-
             res.redirect '/'
 
     loginPage: (req, res) ->
@@ -53,28 +46,34 @@ userController = (app) ->
     idea: (req, res) ->
 
     new: (req, res) ->
+        res.redirect '/login' if !req.user
+
         data = req.body
-        user_id = '5310aa29df63c208a6000001'
+        user_id = req.user
+
         Users.findOne({_id: user_id}).exec (err, user) ->
             console.log err if err
 
             idea =
                 name: data.idea
                 description: data.description
-                user: user 
+                user: user
 
             user.ideas.push idea
 
             user.save (err) ->
                 console.log err if err
-                res.redirect '/'
+                res.redirect '/ideas/' + req.user
 
     delete: (req, res) ->
 
     update: (req, res) ->
 
     start: (req, res) ->
-        user_id = '5310aa29df63c208a6000001'
+        res.redirect '/login' if !req.user
+
+        user_id = req.user
+
         Users.findOne({_id: user_id}).exec (err, user) ->
             console.log err if err
 

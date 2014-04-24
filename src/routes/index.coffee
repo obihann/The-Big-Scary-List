@@ -1,4 +1,5 @@
 http = require 'http'
+passport = require 'passport'
 
 router = (app) ->
     user = require('../controllers/user') app
@@ -15,6 +16,7 @@ router = (app) ->
 
     app.get '/login', user.loginPage
     app.post '/register', user.register
-    app.post '/login', user.login
+    #app.post '/login', user.login
+    app.post '/login', passport.authenticate('local'), user.login
 
 module.exports = router

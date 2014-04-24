@@ -17,4 +17,6 @@ build
 node_modules
 
 .sass-cache
-.gitignore
+.env
+Vagrantfile
+.vagrant/
