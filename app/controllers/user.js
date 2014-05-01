@@ -20,6 +20,12 @@ userController = function(app) {
         return res.redirect('/login');
       }
     },
+    logout: function(req, res) {
+      req.logout();
+      return req.session.destroy(function() {
+        return res.redirect('/');
+      });
+    },
     register: function(req, res) {
       var data, hash, salt, user;
       data = req.body;

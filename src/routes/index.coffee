@@ -16,7 +16,8 @@ router = (app) ->
 
     app.get '/login', user.loginPage
     app.post '/register', user.register
-    #app.post '/login', user.login
     app.post '/login', passport.authenticate('local'), user.login
+
+    app.get '/logout', user.logout
 
 module.exports = router

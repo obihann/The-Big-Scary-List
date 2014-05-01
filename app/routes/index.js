@@ -17,7 +17,8 @@ router = function(app) {
   app.post('/idea/finish/:id', user.finish);
   app.get('/login', user.loginPage);
   app.post('/register', user.register);
-  return app.post('/login', passport.authenticate('local'), user.login);
+  app.post('/login', passport.authenticate('local'), user.login);
+  return app.get('/logout', user.logout);
 };
 
 module.exports = router;

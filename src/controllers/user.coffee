@@ -13,6 +13,10 @@ userController = (app) ->
         else
             res.redirect '/login'
 
+    logout: (req, res) ->
+        req.logout()
+        req.session.destroy () ->
+            res.redirect '/'
 
     register: (req, res) ->
         data = req.body
