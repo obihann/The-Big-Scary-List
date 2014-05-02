@@ -3,15 +3,8 @@
   "version": "1.0.0",
   "description": "Well, this is the big scary list. And what exactly is the big scary list? It is list is a personal and semi-professional projects, with the purpose of tracking all my ideas, goals, and half brained schemes. Now, a site like teuxdeux, or a tool like Evernote would be able to do this just as well (or better) than a simple WordPress based site and to be honest I use both frequently, but this site brings something more.",
   "main": "app/index.js",
+  "repository": "https://github.com/obihann/BigScaryList.git",
   "dependencies": {
-    "coffee-script": "~1.6.3",
-    "jade": "~0.34.1",
-    "sass": "~0.5.0",
-    "grunt": "~0.4.1",
-    "grunt-contrib-jade": "~0.8.0",
-    "grunt-contrib-coffee": "~0.7.0",
-    "grunt-contrib-sass": "~0.4.1",
-    "grunt-contrib-watch": "~0.5.1",
     "mongoose": "~3.8.8",
     "underscore": "~1.6.0",
     "mongodb": "~1.3.23",
@@ -24,8 +17,20 @@
     "passport-http": "^0.2.2",
     "passport-local": "^1.0.0"
   },
+  "devDependencies": {
+    "coffee-script": "~1.6.3",
+    "grunt": "~0.4.1",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-jade": "~0.8.0",
+    "grunt-contrib-sass": "~0.4.1",
+    "grunt-contrib-watch": "~0.5.1",
+    "jade": "~0.34.1",
+    "sass": "~0.5.0",
+    "should": "^3.3.1",
+    "supertest": "^0.12.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "Jeffrey Hann",
   "license": "GPL V2"
