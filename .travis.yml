@@ -1,8 +1,9 @@
 language: node_js
 node_js:
 - '0.10'
+before_install: npm install -g mocha
 deploy:
   provider: heroku
   api_key:
-    secure: Y8cPyPDxxmXHA8hDXT9ZFXjp0fHVfT+PlFiwdIzizqLTWn0f7FY/iYc5wRb/dFJH/9ttR/UH9elQ9n2aLPy3JQwQcOHefzm4QBxYSjrZV5bjTHWXKU2ElX+Y5h4f1W1hcZdB/8cnq9x8CLxcMyKK3Hp1G39QHi1tVxCVN79aBRE=
+    secure: V+5D1SsBAFYnSq29dtNFiiZdupkc2OsBZReYuL1TltN7cXeJ7/WB8OsdJkf12Hh6HwidhGTqP6f3CC7MVzHCi7gEOHGE15xDLF0prJPKBri8xLg+/51FrRkyRmo3dwVA58d5BaTdmTFlWJtReG5fYLRpv3PjiVeRuE0TaEYfp8M=
   app: bigscarylist
