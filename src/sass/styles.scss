@@ -1,0 +1,42 @@
+body {
+    background-color: #e2e2e2;
+}
+
+a {
+    color: #000;
+
+    &:hover {
+        color: #000;
+    }
+}
+
+i {
+    margin: 0px 5px;
+
+    a {
+        margin: 0px 0px 0px 2px;
+    }
+}
+
+.form-inline {
+    input {
+        margin: 0px 4px;
+    }
+}
+
+.container {
+    padding: 20px;
+}
+
+.ideas {
+    background-color: #FFF;
+}
+
+ul, li {
+    margin: 20px 0px;
+}
+
+small {
+    display: block;
+    margin: 6px 0px 0px 0px;
+}

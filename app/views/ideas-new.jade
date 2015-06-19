@@ -1,0 +1,30 @@
+.header
+    h1.text-center The Big Scary List
+        small What's your idea?
+.container
+    .row.text-center
+        ul.list-inline.text-center
+            li
+                i.fa.fa-plus
+                    a(href="/") My List
+            li
+                i.fa.fa-plus
+                    a(href="/new-idea") New Idea
+            li
+                i.fa.fa-link 
+                    a(href="/") Share My List
+            li
+                i.fa.fa-times
+                    a(href="/logout") Log Out
+                    
+.container.ideas
+    .row
+        div(class="col-xs-8 col-xs-offset-2")
+            form(role="form", action="/idea/new", method="post")
+                div.form-group
+                    label(for="idea") Your big idea
+                    input(name="idea", type="text", class="form-control", placeholder="What do you call it?") 
+                div.form-group
+                    label(for="description") Tell us about it
+                    input(name="description", type="text", class="form-control", placeholder="What does it do?") 
+                button(type="submit", class="btn btn-default") Save idea

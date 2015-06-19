@@ -1,0 +1,52 @@
+.header
+    h1.text-center The Big Scary List
+.container
+    .row.text-center
+        ul.list-inline.text-center
+            li
+                i.fa.fa-plus
+                    a(href="/") My List
+            li
+                i.fa.fa-plus
+                    a(href="/new-idea") New Idea
+            li
+                i.fa.fa-link 
+                    a(href="/") Share My List
+            li
+                i.fa.fa-times
+                    a(href="/logout") Log Out
+                    
+
+.container.ideas
+    .row
+        .col-xs-6
+            h3.text-center In Progress
+            ul.text-center.list-unstyled
+                each idea in ideas
+                    if idea.started
+                        li
+                            span.lead=idea.name
+                            small
+                                em The current progress is 
+                                    = idea.progress
+                                    %
+                            p= idea.description
+        .col-xs-6
+            h3.text-center Ideas
+            ul.text-center.list-unstyled
+                each idea in ideas
+                    if !idea.started && !idea.finished
+                        li
+                            span.lead=idea.name
+                            p= idea.description
+                            a(class="btn.btn-default", href="/idea/start/#{idea._id}") Start the idea
+    .rows
+        .col-xs-12
+            h3.text-center Completed
+            ul.text-center.list-unstyled
+                each idea in ideas
+                    if idea.finished
+                        li
+                            span.lead=idea.name
+                            p= idea.description
+
