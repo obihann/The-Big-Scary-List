@@ -1,4 +1,8 @@
+[![Coverage Status](https://coveralls.io/repos/obihann/big-scary-list/badge.svg)](https://coveralls.io/r/obihann/big-scary-list)
 [![Build Status](https://travis-ci.org/obihann/big-scary-list.svg?branch=node)](https://travis-ci.org/obihann/big-scary-list)
+[![Dependency Status](https://david-dm.org/obihann/big-scary-list.svg)](https://david-dm.org/obihann/big-scary-list)
+[![node](https://img.shields.io/node/v/gh-badges.svg)](https://nodejs.org/)
+[!GPL](https://img.shields.io/badge/license-GPLv2-green.svg)(http://www.gnu.org/licenses/gpl-2.0.html)
 
 #The Big Scary List
 Well, this is the big scary list. And what exactly is the big scary list? It is list is a personal and semi-professional projects, with the purpose of tracking all my ideas, goals, and half brained schemes. Now, a site like teuxdeux, or a tool like Evernote would be able to do this just as well (or better) than a simple WordPress based site and to be honest I use both frequently, but this site brings something more. 
