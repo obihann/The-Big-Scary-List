@@ -19,12 +19,14 @@
   },
   "devDependencies": {
     "coffee-script": "~1.6.3",
+    "coveralls": "^2.11.2",
     "grunt": "~0.4.1",
     "grunt-contrib-coffee": "~0.7.0",
     "grunt-contrib-jade": "~0.8.0",
     "grunt-contrib-sass": "~0.4.1",
     "grunt-contrib-watch": "~0.5.1",
     "jade": "~0.34.1",
+    "mocha-lcov-reporter": "0.0.2",
     "sass": "~0.5.0",
     "should": "^3.3.1",
     "supertest": "^0.12.0"
@@ -32,6 +34,7 @@
   "scripts": {
     "test": "mocha"
   },
-  "author": "Jeffrey Hann",
-  "license": "GPL V2"
+  "author": "Jeffrey Hann <jeffhann@gmail.com. (http://jeffreyhann.ca)",
+  "license": "GPL-V2",
+  "homepage": "http://bigscarylist.herokuapp.com/"
 }
