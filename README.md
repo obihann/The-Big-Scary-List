@@ -1,4 +1,5 @@
 [![Coverage Status](https://coveralls.io/repos/obihann/big-scary-list/badge.svg)](https://coveralls.io/r/obihann/big-scary-list)
+[![Codacy Badge](https://www.codacy.com/project/badge/a65ba1f9cc844d208c1382d63cc7a4df)](https://www.codacy.com/app/jeffhann/big-scary-list)
 [![Build Status](https://travis-ci.org/obihann/big-scary-list.svg?branch=node)](https://travis-ci.org/obihann/big-scary-list)
 [![Dependency Status](https://david-dm.org/obihann/big-scary-list.svg)](https://david-dm.org/obihann/big-scary-list)
 [![node](https://img.shields.io/node/v/gh-badges.svg)]()
