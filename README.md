@@ -1,8 +1,8 @@
 [![Coverage Status](https://coveralls.io/repos/obihann/big-scary-list/badge.svg)](https://coveralls.io/r/obihann/big-scary-list)
 [![Build Status](https://travis-ci.org/obihann/big-scary-list.svg?branch=node)](https://travis-ci.org/obihann/big-scary-list)
 [![Dependency Status](https://david-dm.org/obihann/big-scary-list.svg)](https://david-dm.org/obihann/big-scary-list)
-[![node](https://img.shields.io/node/v/gh-badges.svg)](https://nodejs.org/)
-[![GPL](https://img.shields.io/badge/license-GPLv2-green.svg)](http://www.gnu.org/licenses/gpl-2.0.html)
+[![node](https://img.shields.io/node/v/gh-badges.svg)]()
+[![GitHub license](https://img.shields.io/github/license/obihann/big-scary-list.svg)]()
 
 #The Big Scary List
 
